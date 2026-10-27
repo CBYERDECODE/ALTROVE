@@ -1,11 +1,11 @@
 # ALTROVE
 ALTROVE — An AI-powered travel itinerary planner that transforms your dream destinations into personalized journeys based on your budget, preferences, and travel duration
 
-# ✈️ VoyageIQ
+# ✈️ ALTROVE
 
 ### Your Journey. Your Budget. Your Perfect Plan.
 
-VoyageIQ is an AI-powered travel itinerary planner that helps
+ALTROVE is an AI-powered travel itinerary planner that helps
 users create personalized travel plans based on their destination,
 budget, trip duration, and travel preferences.
 
@@ -30,7 +30,7 @@ Users provide:
 - Accommodation preference
 - Special requirements
 
-VoyageIQ generates:
+ALTROVE generates:
 - Day-wise itinerary
 - Morning, afternoon, and evening activities
 - Estimated budget breakdown
@@ -40,7 +40,7 @@ VoyageIQ generates:
 - Travel tips
 - Budget-saving recommendations
 
-## ✨ Features
+##  Features
 
 ### 1. AI Itinerary Generator
 
@@ -192,7 +192,7 @@ Data is stored locally in the user's browser.
 - The API key is sent directly from the browser.
 - Browser storage is not a secure location for production API keys.
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - Interactive maps
 - Live weather information
