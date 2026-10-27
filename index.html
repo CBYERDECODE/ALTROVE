@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ALTROVE — Luxury AI Travel Planner">
+  <title>ALTROVE | Go Somewhere Extraordinary</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body data-theme="light">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <a href="#" class="logo">ALTROVE<span>✦</span></a>
+
+      <nav class="nav-links">
+        <a href="#planner">Plan a journey</a>
+        <a href="#results">Your itinerary</a>
+        <a href="#saved">Saved journeys</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">
+          ☾
+        </button>
+
+        <button id="settingsBtn" class="btn btn-outline">
+          API Settings
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+
+          <span class="eyebrow">
+            THE ART OF TRAVEL, REIMAGINED
+          </span>
+
+          <p class="hero-tagline">
+            Go somewhere extraordinary.
+          </p>
+
+          <h1>
+            Your next journey
+            <em>begins with a thought.</em>
+          </h1>
+
+          <p class="hero-description">
+            Tell us where you dream of going.
+            We'll take care of the planning.
+          </p>
+
+          <a href="#planner" class="btn btn-primary hero-cta">
+            Where would you like to escape to? ↗
+          </a>
+
+          <div class="hero-footnote">
+            <span>✦ CURATED BY INTELLIGENCE</span>
+            <span>✦ INSPIRED BY YOU</span>
+          </div>
+
+        </div>
+
+        <div class="hero-image-wrap">
+
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=85"
+            alt="Beautiful Mediterranean travel destination"
+          >
+
+          <div class="hero-image-overlay">
+            <span>01 / THE WORLD IS YOURS</span>
+            <strong>Discover the extraordinary.</strong>
+          </div>
+
+          <div class="floating-note">
+            <span>✦</span>
+            <div>
+              <strong>Thoughtfully curated</strong>
+              <small>Every journey, uniquely yours.</small>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- INTRO STRIP -->
+    <section class="intro-strip">
+      <div class="container strip-inner">
+        <span>EXPLORE BEYOND EXPECTATIONS</span>
+        <span class="strip-star">✦</span>
+        <span>YOUR JOURNEY, YOUR WAY</span>
+        <span class="strip-star">✦</span>
+        <span>INTELLIGENTLY CURATED</span>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="container stats">
+      <div class="stat">
+        <span class="stat-label">JOURNEYS CREATED</span>
+        <strong id="totalTrips">0</strong>
+      </div>
+
+      <div class="stat">
+        <span class="stat-label">DAYS OF DISCOVERY</span>
+        <strong id="totalDays">0</strong>
+      </div>
+
+      <div class="stat">
+        <span class="stat-label">SAVED ESCAPES</span>
+        <strong id="savedCount">0</strong>
+      </div>
+    </section>
+
+    <!-- PLANNER -->
+    <section id="planner" class="section container">
+
+      <div class="section-intro">
+        <span class="eyebrow">01 — THE BEGINNING</span>
+        <h2>Every extraordinary journey<br><em>starts somewhere.</em></h2>
+        <p>
+          Share a few details. We'll transform your travel dreams
+          into a thoughtfully curated itinerary.
+        </p>
+      </div>
+
+      <div class="planner-layout">
+
+        <div class="planner-card">
+
+          <div class="card-heading">
+            <span class="eyebrow">DESIGN YOUR ESCAPE</span>
+            <h3>Tell us about your journey.</h3>
+          </div>
+
+          <form id="tripForm">
+
+            <div class="field">
+              <label for="destination">WHERE WOULD YOU LIKE TO GO?</label>
+              <input
+                id="destination"
+                type="text"
+                placeholder="Paris, Kyoto, Bali, Goa..."
+                maxlength="100"
+                required
+              >
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="budget">TOTAL BUDGET</label>
+                <input
+                  id="budget"
+                  type="number"
+                  min="1"
+                  placeholder="25000"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label for="currency">CURRENCY</label>
+                <select id="currency">
+                  <option value="INR">INR — ₹</option>
+                  <option value="USD">USD — $</option>
+                  <option value="EUR">EUR — €</option>
+                  <option value="GBP">GBP — £</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="days">DURATION (DAYS)</label>
+                <input
+                  id="days"
+                  type="number"
+                  min="1"
+                  max="14"
+                  value="4"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label for="travelers">TRAVELERS</label>
+                <input
+                  id="travelers"
+                  type="number"
+                  min="1"
+                  max="20"
+                  value="2"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="travelStyle">YOUR TRAVEL PERSONALITY</label>
+              <select id="travelStyle">
+                <option value="balanced">A little of everything</option>
+                <option value="adventure">Adventure & exploration</option>
+                <option value="relaxation">Relaxation & wellness</option>
+                <option value="culture">Art, culture & history</option>
+                <option value="food">Food & local discoveries</option>
+                <option value="luxury">Luxury & indulgence</option>
+                <option value="budget">Thoughtful budget travel</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="accommodation">YOUR IDEAL STAY</label>
+              <select id="accommodation">
+                <option value="budget">Budget / Boutique hostel</option>
+                <option value="standard" selected>Comfortable / Mid-range</option>
+                <option value="luxury">Luxury / Premium</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="preferences">ANYTHING ELSE WE SHOULD KNOW?</label>
+              <textarea
+                id="preferences"
+                rows="3"
+                maxlength="1000"
+                placeholder="Hidden gems, vegetarian food, quiet beaches, local experiences..."
+              ></textarea>
+            </div>
+
+            <button id="generateBtn" type="submit" class="btn btn-primary full-width">
+              Curate my journey ↗
+            </button>
+
+          </form>
+
+          <div id="loading" class="loading hidden" role="status">
+            <div class="spinner"></div>
+            <div>
+              <strong>Curating your journey...</strong>
+              <p>Finding extraordinary experiences just for you.</p>
+            </div>
+          </div>
+
+          <div id="errorMessage" class="error hidden" role="alert"></div>
+
+        </div>
+
+        <aside class="planner-side">
+
+          <div class="editorial-image">
+            <img
+              src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=85"
+              alt="Paris travel inspiration"
+            >
+            <div class="editorial-caption">
+              <span>THE WORLD AWAITS</span>
+              <h3>Some places stay<br>with you forever.</h3>
+            </div>
+          </div>
+
+          <div class="promise-card">
+            <span class="eyebrow">THE ALTROVE EXPERIENCE</span>
+
+            <div class="promise-item">
+              <span>01</span>
+              <div>
+                <h4>Thoughtful itineraries</h4>
+                <p>Every day curated around your interests.</p>
+              </div>
+            </div>
+
+            <div class="promise-item">
+              <span>02</span>
+              <div>
+                <h4>Intelligent budgeting</h4>
+                <p>Discover more while respecting your budget.</p>
+              </div>
+            </div>
+
+            <div class="promise-item">
+              <span>03</span>
+              <div>
+                <h4>Extraordinary discoveries</h4>
+                <p>Local experiences, hidden gems, and unforgettable places.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="section container">
+
+      <div class="section-intro">
+        <span class="eyebrow">02 — YOUR STORY UNFOLDS</span>
+        <h2>A journey made <em>for you.</em></h2>
+        <p>Every detail, thoughtfully considered.</p>
+      </div>
+
+      <div id="emptyResults" class="empty-state">
+        <span class="empty-symbol">✦</span>
+        <h3>Your story is yet to begin.</h3>
+        <p>
+          Create your first itinerary and discover where
+          your imagination can take you.
+        </p>
+        <a href="#planner" class="text-link">Start planning ↗</a>
+      </div>
+
+      <div id="resultContent" class="hidden">
+
+        <div class="result-header">
+          <div>
+            <span class="eyebrow">YOUR CURATED ESCAPE</span>
+            <h2 id="resultTitle"></h2>
+            <p id="resultOverview"></p>
+            <div id="resultMeta" class="result-meta"></div>
+          </div>
+
+          <div class="result-actions">
+            <button id="saveTripBtn" class="btn btn-outline">♡ Save journey</button>
+            <button id="downloadBtn" class="btn btn-outline">↓ Download</button>
+            <button id="regenerateBtn" class="btn btn-primary">↻ Reimagine</button>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="itinerary">The Journey</button>
+          <button class="tab" data-tab="budget">The Budget</button>
+          <button class="tab" data-tab="discover">Discoveries</button>
+          <button class="tab" data-tab="packing">Packing List</button>
+          <button class="tab" data-tab="tips">Travel Notes</button>
+        </div>
+
+        <div id="itineraryPanel" class="tab-panel"></div>
+        <div id="budgetPanel" class="tab-panel hidden"></div>
+        <div id="discoverPanel" class="tab-panel hidden"></div>
+        <div id="packingPanel" class="tab-panel hidden"></div>
+        <div id="tipsPanel" class="tab-panel hidden"></div>
+
+      </div>
+    </section>
+
+    <!-- SAVED -->
+    <section id="saved" class="section container saved-section">
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">03 — YOUR COLLECTION</span>
+          <h2>Journeys worth <em>remembering.</em></h2>
+        </div>
+
+        <button id="clearTripsBtn" class="btn btn-outline">
+          Clear saved journeys
+        </button>
+      </div>
+
+      <div id="savedTripsList" class="saved-grid"></div>
+
+    </section>
+
+  </main>
+
+  <!-- SETTINGS MODAL -->
+  <div id="settingsModal" class="modal hidden" role="dialog"
+       aria-modal="true" aria-labelledby="settingsTitle">
+
+    <div class="modal-box">
+
+      <div class="modal-top">
+        <h2 id="settingsTitle">Connect your AI concierge</h2>
+        <button id="closeSettingsBtn" class="close-btn" aria-label="Close">×</button>
+      </div>
+
+      <p>
+        Enter your Gemini API key to enable personalized
+        travel itinerary generation.
+      </p>
+
+      <label for="apiKey" class="modal-label">GEMINI API KEY</label>
+
+      <input
+        id="apiKey"
+        type="password"
+        placeholder="Paste your Gemini API key"
+        autocomplete="off"
+      >
+
+      <label class="remember-row">
+        <input id="rememberKey" type="checkbox">
+        Remember key on this device
+      </label>
+
+      <p class="security-note">
+        Browser storage is not secure for production API keys.
+        Only use this option on a trusted device for a classroom demo.
+      </p>
+
+      <div class="modal-buttons">
+        <button id="saveSettingsBtn" class="btn btn-primary">
+          Save API key
+        </button>
+        <button id="removeKeyBtn" class="btn btn-outline">
+          Remove key
+        </button>
+      </div>
+
+      <p class="api-help">
+        Get a key from
+        <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">
+          Google AI Studio ↗
+        </a>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="#" class="logo">ALTROVE<span>✦</span></a>
+        <p>Go somewhere extraordinary.</p>
+      </div>
+
+      <div class="footer-right">
+        <span>THOUGHTFULLY CURATED. INTELLIGENTLY INSPIRED.</span>
+        <small>© <span id="year"></span> ALTROVE</small>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
