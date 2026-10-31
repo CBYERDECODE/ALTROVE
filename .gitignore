@@ -1,0 +1,30 @@
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+
+# Dependencies
+node_modules/
+
+# Build folders
+dist/
+build/
+
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Editor configuration
+.idea/
+
+# Log files
+*.log
+
+# Sensitive files
+apikey.txt
+api-key.txt
+secrets.json
+credentials.json
